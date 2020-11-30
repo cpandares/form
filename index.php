@@ -1,0 +1,825 @@
+<?php
+
+require_once 'email/email.php';
+require_once 'conexion.php';
+require_once 'controller.php';
+require_once 'config.php';
+
+$contact = new Formulario;
+$Email = new Email;
+
+
+
+?>
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <script src="sw/sweetalert2.js"></script>
+    <link rel="stylesheet" href="sw/sweetalert2.css">
+   
+    <title>Walking in Confidence</title>
+
+    <style>
+        input {
+            border: none !important;
+            border-bottom: 1px solid black !important;
+        }
+        
+        .form-control2 {
+            width: 50% !important;
+        }
+        
+        .form-control3 {
+            width: 30% !important;
+        }
+        
+        .form-control4 {
+            width: 20% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo-inv.png" width="70" height="30" alt="" loading="lazy">
+        </a>
+    </nav>
+
+
+  
+
+        <div class="container shadow p-5 mt-5">
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                <h1 class="text-center mt-5">NO-HARM CONTRACT</h1>
+                <br>
+                    <form action="form.php" method="POST" onsubmit="return validar()">
+
+                        <div class="form">
+
+                            <span>I, <input type="text" name="name" id="nombre" required>, agree to not harm in any way, attemp to kill my self, or kill my self during the period form <input type="date" name="date1" id="date1" > to <input type="date" name="date2" id="date2" required>, (the time of my next appoiment).</span><br><br>
+
+
+
+                            <p>
+                                I, agree that, for any reason, if the appoiment seassion is posponed, canceled, etc., that this time period is extended until the next direct meeting with my conselor.In this period time, I agree to care myself, to eat well, and to get enough sleep each
+                                nigth.
+                            </p>
+
+                            <p>I agree to make social/family contact with the following individuals</p>
+                            <input type="text" name="family1" class="form-control" placeholder="name-1" id="family1" required>
+                            <input type="text" name="family2" class="form-control" placeholder="name-2" id="family2" required>
+                            <input type="text" name="family3" class="form-control" placeholder="name-3" id="family3" required>
+                            <input type="text" name="family4" class="form-control" placeholder="name-4" id="family4" required>
+
+                            <p>I agree to rid my presence of all things I could use to harm or kill my self. I agree that, If I am having a rough time and come to a point wheat I may brake any of these promises, I will call and make significant contact with
+                                any of following individuals</p>
+
+                            <span> 
+                                <input type="text" name="family_5" width="50% important!;" placeholder="name" id="family5" >at:# <input type="text" name="phone1" id="phone1" required> 
+                            </span><br><br>
+                            <span> 
+                                <input type="text" name="family_6"  placeholder="name" id="family6" required>at:# <input type="text" name="phone2" id="phone2" required> 
+                            </span><br><br>
+
+                            <p>
+                                If I cannot contact these individuals, I will immediatly call the <b>Crisis Hotline at</b> # <input type="text" name="phoneC" id="phoneC" required> or, call 1-800-273-8255, the U.S. 24-hour suicide prevention line.
+                            </p>
+
+                            <p>
+                                I agree that these condition are important, worth, and that this is I am willing to make and keep. By my word and honor. I intend to keep this contact.
+                            </p>
+                            <span> 
+                            Signed <input type="text" name="signed" width="50% important!;" placeholder="name" id="signed1">Date <input type="date" name="dateS" id="dateS" required> 
+                            </span><br><br>
+                            <span> 
+                            Witnessed by <input type="text" name="witness"  placeholder="name" id="witness1" >Date <input type="date" name="dateW" id="dateW" required> 
+                            </span><br><br>
+                            <hr>
+
+
+                            <h2 class="text-center">Telehealth Treatment Consent</h2>
+
+                            <p><strong>Information and informed consent for telemental health and treatment</strong></p>
+
+                            <span>Telemental health is live two-way audio and video electronic comunuications that allos therapist to meet outside of a physical office</span>
+                            <br>
+                            <p><strong>Client understanding</strong></p>
+
+                            <ul>
+                                <li>I understand that telemental health services are completely voluntary and taht I can withdraw this consent at any time</li>
+                                <li>I understand that none of the telemental health sessions will be recorded or photographed</li>
+                                <li>I agree not to make or allow audio or video recordings of any portions of the sessions </li>
+                                <li>I understand that the laws that protect privacy and the Confidentiality of client information also apply to telemental health, and that no information obteined in the use of telemental health that identifies me will be disclosed
+                                    to other entities whith out my consent</li>
+                                <li>I understand that telemental health i performed over a secure comunication system that is almost impossible for anyone else to access. I undertand that any internet based comunication is not 100% guaranteed to be secure</li>
+                                <li>I agree that the terapist and practice will not be held responsible if any outside the party gains access to my personal information by passing the secure measures of the comunication system </li>
+                                <li>I understand there are potencial risks tho this technology, including interruptions, unauthorirezed access, and technical dificulties </li>
+                                <li>In understand that I or my therapist may discontinue the telemental sessions at any time if it is felt that the video technology is not adequate for the situation</li>
+                                <li>I undertand that if there is an emergency during a telemental helath session, then my therapist may call emergency services, and/or emergency contact</li>
+                                <li>I undertand that if this form is signed in addition to the Notice of Privacy Practices and Consent to Treatment and that all office policies and procedures apply to telemental health services.</li>
+                                <li>I understand that if the video conferencing connectiions drops while I am in a session, I will have an additional phone line available to contact to my therapist, or I will make additional plans with my therapist ahead of time
+                                    for re-contact </li>
+                                <li>I understand a "no show" or late fee will be charged if a miss an appoiment or do not cancel whitin 24 hours of scheduled appoiment. I understand credit card or other form of payment will be established before the first session.</li>
+                                <li>I understand my therapist will advise me about telmental health plataform to use she will establish a video conference session.</li>
+                            </ul>
+
+                            <br>
+
+                            <h2>Client consent</h2>
+                            <span> 
+                                Client Name:   <input type="text" name="client_name" width="50% important!;" placeholder="Client name" id="client_name" required> 
+                            </span><br><br>
+                            <span> 
+                            I hereby give my informaed consent for the use of tlemental health in my care. Client Initials  <input type="text" name="client_ini" width="50% important!;" placeholder="Client Initials" required> 
+                            </span><br><br>
+                            <span> 
+                                Date Birth  <input type="date" name="birth_client" width="50% important!;" placeholder="Client Birth" required> 
+                            </span><br><br>
+                            <span> 
+                            Email  <input type="email" name="email_client" width="50% important!;" placeholder="Client Email" required> 
+                            </span><br><br>
+                            <span> 
+                                Phone Number  <input type="text" name="phone_client" width="50% important!;" placeholder="Client Phone" required> 
+                            </span><br><br>
+                            <span> 
+                                Client Signature  <input type="text" name="client_signature" width="50% important!;" placeholder="Client Phone" required> 
+                            </span><br><br>
+                            <span> 
+                                Date <input type="date" name="dateApp" width="50% important!;" placeholder="Date" required> 
+                            </span><br><br>
+                            <hr>
+
+                            <h2 class="text-center">Notice of Privacy Practices</h2>
+                            <br>
+                            <span>This notes describes how medical indformation about you may be used and disclosed and how yo can get access to it. Please review carefully.</span>
+                            <br>
+                            <ol>
+                                <li>Your medical records are used to provide treatment, bill and receive payments, adn conduct healthcare opperations. Example of these activities include but not limited to review of treatment records to ensure appropiate care,
+                                    electronic or mail delivery of billing for treatment to you or other authorarized payers, appoiment reminder telephone call, and records review to ensure completeness and quality of care. Use and disclosure of medical records
+                                    is limited to the internal used outlined above except require by law or authorized by patient or legal. </li>
+
+                                <li>Federal and state laws require abuse, neglect, domestict violence and threats to be reported to social services or other protective agencies. If such reports are made they will be disclosed to you or your legal Representative
+                                    under disclosure increases risks of further.</li>
+
+                                <li>Disclosed information will be limited to the minimun necesary. You may request an account for any uses or disclosures other than those described in Section 1 and Sections 2.</li>
+                                <li>You or your legal representative, may request your records to be disclosed to yourself or other entity. Your request must be made in writing, clearly identify the person authorized to request the release, specify the information
+                                    you want disclosed, the name and address of entity tou want the information releaced to, the purpose and the expiration date of the Authorization. Any authorization provided may be revoked in writing anytime. Phychotherapy
+                                    notes are part of your medical records. We have 30 days to respond to a disclosure request and 60 days if the records is stored off site</li>
+                                <li>Tou may request corrections to your records</li>
+                                <li>A request for disclosure may be denied under the following circumtances: disclosure would likely endanger the life or physical safety of you or another person, requested information references other persons, except another
+                                    healthcare provider, or if releaced to a legal representative would likely result in harm.</li>
+                                <li>A request for disclosure is denied for reasons outlined in Section 6, you or your legal representative may request review of denial. A review will be conducted by another licensed healthcare provider appointed by the original
+                                    reviewer, who was not involved in the original decision to deny access. A review will be concluded whitin 30 days.</li>
+                                <li>You may request that we restrict uses and disclosures outlined in Section 1. However, we are not require to agree to the restrictions. If an agreement is made to restrict use or disclosure, we will be bound by such restriction
+                                    until revoked by you or your legal representative orally or in writing except when disclosure is required by law or in an emergency. We may also revoke such restrictions but information gathered required y law or in an
+                                    emergency. We may also revoke such restrictions but information gathered while the restriction was in place will remain restricted by such an agreement.</li>
+                                <li>If you wish to complain about privacy related issues yoy may contact the Secretary of the Departament of Health and Human Services, Hubert H. Humphrey Building, 200 Independence Avenue SW, Washington DC, 20201. In any case
+                                    there will not be any retaliation against you or your legal representative for filing a complaint</li>
+
+                                <li>This agreement may be modified or amended as required by law or in the course of health care opperations.</li>
+                            </ol>
+
+                            <span>
+                                I HAVE READ AND UNDERSTOOD THIS PRIVACY NOTICE AND MY RIGTHS CONCERNING USE AND DISCLOSURE OF PROTECTED HEALTH CARE INFORMATION
+                            </span>
+
+
+
+                            <span> 
+                            <input type="text" name="NameRep"  placeholder="Individual or Legal Representative(Please print)" class="form-control2" required>  Date <input type="date" name="dateRep" required> 
+                            </span><br><br>
+                            <span> 
+                            <input type="text" name="SignaRep"  placeholder="Signature of Individual or Legal Representative" class="form-control2">Date <input type="text" name="dateRep2" required> 
+                            </span><br><br>
+
+                            <hr>
+
+                            <h2 class="text-center">Patient Questionnaire</h2>
+                            <span> Name:
+                                <input type="text" name="NamePat" class="form-control2 mt-5" placeholder="Name patient" class="form-control2" required> 
+                                        </span><br><br>
+                            <span> 
+
+                            <span> 
+                                Date of Birth: <input type="text" name="birth" width="50% important!;" placeholder="Birth Date">     Age <input type="text" name="dateS" class="mr-50" required> 
+                            </span><br><br>
+
+                            <span> 
+                            Medication Alergies: <textarea name="medicationAler" class="form-control" required></textarea> 
+                            </span><br><br>
+
+                            <span> 
+                            Current  Medication: <textarea name="currentMed" class="form-control" ></textarea> 
+                            </span><br><br>
+
+                            <span> 
+                            Phisycan diganosed medical problem: <textarea name="problemPhis" class="form-control" required></textarea> 
+                            </span><br><br>
+
+                            <span> 
+                                Past seurgeries: <textarea name="pastSurge" class="form-control" required></textarea> 
+                                </span><br><br>
+
+                            <span>
+                                1. Does your <input type="checkbox" name="father" value="Father"> Father, <input type="checkbox" name="mother" value="mother"> Mother, <input type="checkbox" name="brother" value="brother"> Brother (s), <input type="checkbox" name="sister" value="sister"> Sister(s), have a history of alcohol or drug abuse? <input type="text" name="drugA" class="form-control2" placeholder="History of alcohol or drug abuse" >
+                            </span><br><br>
+
+                            <span>
+                                2. Do you smoke?  <input type="text" name="smoke" class="form-control2" placeholder="smoke?"> If yes, 
+                                <input type="text" name="smoke2" class="form-control2" placeholder="stop smoke">
+                            </span><br><br>
+
+                            <span>
+                                3. Do you use alcohol?  <input type="text" name="alchol" class="form-control2" placeholder="Do you use alcohol?"> If yes, 
+                                <input type="checkbox" name="minimal"> Minimal  <input type="checkbox" name="moderate"> Moderate  <input type="checkbox" name="heavy"> Heavy
+                            </span><br><br>
+
+
+                            <span>
+                                4. <input type="text" name="alcholTrea" class="form-control2" placeholder="Have you ever treated or diganosid alcoholism" >  
+                                
+                            </span><br><br>
+
+                            <span>
+                                5. Do you think you are an alcholic or a drug addict  <input type="text" name="drugAdict" class="form-control2" placeholder="Yes or No" required>  
+                                
+                            </span><br><br>
+
+                            <span>
+                                6. Have you abused prescriptions medications (your own or someelse)  <input type="text" name="abusedMed" class="form-control3" >  Type?? <textarea name="descriptAbu" class="form-control mt-1"></textarea>
+                                
+                            </span><br><br>
+
+                            <span>
+                                7. <input type="text" name="convicted" class="form-control3" placeholder="Are you convicted ??" required>  
+                                <input type="text" name="sentence" class="form-control3" placeholder="Sentence passed down" required>
+                            </span><br><br>
+
+                            <span>
+                                8. What pharmacy will you utilizing?? <input type="text" name="pharmacy" class="form-control" placeholder="Name of pharmacy" required>  
+                                
+                            </span><br><br>
+
+                            <span>
+                                9. 
+                                <input type="text" name="phoneUnrea" class="form-control" placeholder="Contact not function"> 
+                                
+                                Phone#: <input type="text" class="form-control3" name="phoneWorks" placeholder="Phone client" required> #Cell:  <input type="text" class="form-control3" name="cellWorks" placeholder="Cellular client" required>                            
+                            </span><br><br>
+
+                            <span>
+                                10. Do you agree after reading, accepting, and signing today's documents and treatment agreement that violation or infringement of your treatment agreement will/may result in inmediate discontinuation of treatment with  DEA controlled medications without legal recourse or remedy sought on your behalf <input type="radio" name="agreeMent" value="yes"> YES  <input type="radio" name="agreeMent" value="no"> No&nbsp;&nbsp; &nbsp;&nbsp;
+
+                                                    
+                            </span><br><br>
+
+                            <span>
+                                11. Do you understand inappropiate/improper use of precribed or non prescribed medications may/will KILL YOU ?? &nbsp;&nbsp; &nbsp;&nbsp;
+
+                                <input type="radio" name="acept" value="Understand kill my self" required> Yes  &nbsp;&nbsp;
+                                <input type="radio" name="noacept" value="No Understand kill my self" required> No                           
+                            </span><br><br>
+
+                            <span>
+                                12. Is it your statement that you have answered all questions and inquiries in a truthful and honor manner &nbsp;&nbsp; &nbsp;&nbsp;
+
+                                <input type="radio" name="answerHonor" value="Answer Honor" > Yes  &nbsp;&nbsp;
+                                <input type="radio" name="noanswerHonor" value="No-Answer Honor" > No                           
+                            </span><br><br>
+
+                            <span class="container">
+                                
+                                                            
+                                <input type="text" class="form-control3" name="signaAgree" placeholder="Signature"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                <input type="text" class="form-control3" name="dateAgree" placeholder="Date">                            
+                            </span><br><br>
+
+                            <hr>
+
+                            <h2 class="text-center">Pattient Registration Form</h2>
+                            <span class="container">
+                                
+                                                            
+                                <input type="text" class="form-control3 mt-5" name="signaAgree" placeholder="Pattient Name" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="patientSSN" placeholder="Social Security #" required>  
+                                
+                                
+                                <input type="text" class="form-control3 mt-5" name="streetA" placeholder="Street Address"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="dateBrith" placeholder="Date Birth" required> 
+                                
+                                
+                                <input type="text" class="form-control3 mt-5" name="cityPatient" placeholder="City, State, ZIP Code"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="homePhone" placeholder="Home Phone" required>  
+
+
+                                <input type="text" class="form-control3 mt-5" name="gender" placeholder="Gender" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="workHome" placeholder="Work Phone" required>  
+
+
+                                <input type="email" class="form-control3 mt-5" name="emailAddress" placeholder="Email Address" required>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="mobilePhone" placeholder="Mobile Phone" required>  
+
+
+                                <input type="text" class="form-control3 mt-5" name="primaryPhisician" placeholder="Primary Phisician" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="Phischiatrist" placeholder="Phischiatrist (if any)" required>  
+
+                                <input type="text" class="form-control3 mt-5" name="contactEmergency" placeholder="Emergency Contact Person" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="phoneContactEmergency" placeholder="Emergency Contct Phone" required>
+                                
+                                <input type="text" class="form-control3 mt-5" name="reference" placeholder="How dou you hear about us" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <input type="text" class="form-control3" name="statusMarital" placeholder="Marital status" required>  
+
+
+                            </span><br><br><br><br>
+
+                            <p><b>Responsable party is the person who will be paying the per-session fee for services (leave blank if same as patient)</b> </p>
+
+                            <input type="text" class="form-control3 mt-2" name="partyResponsable" placeholder="Responsable Party"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="homePhoneParty" placeholder="Home Phone">
+
+                            <input type="text" class="form-control3 mt-5" name="streetAd" placeholder="Street address"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="workPhone" placeholder="Work Phone">
+
+                            <input type="text" class="form-control3 mt-5" name="Zcode" placeholder="City, State, ZIP Code"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="Pmobile" placeholder="Mobile Phone">
+
+                            <input type="text" class="form-control3 mt-5" name="relaPat" placeholder="Relationship to pattient"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="ssnRP" placeholder="Responsable party ssn">
+
+                            <hr>
+
+                            <h2 class="text-center mt-5">Insurange Information</h2>
+
+                            <input type="text" class="form-control3 mt-5" name="insurangePrimary" placeholder="Primary Insurange" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policyHolderName" placeholder="Policy Holder Name" required>
+
+                            <input type="text" class="form-control3 mt-5" name="companyName" placeholder="Company name" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policyBirth" placeholder="Policy Holder Date of Birth" required>
+
+                            <input type="text" class="form-control3 mt-5" name="cityState" placeholder="City, State, Zip Code" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="numberId" placeholder="Identifaction Number" required>
+
+                            <input type="text" class="form-control3 mt-5" name="nameCom" placeholder="Company Phone"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="groupPolice" placeholder="Policy/Group Number" required>
+
+                            <input type="text" class="form-control3 mt-5" name="employerName" placeholder="Employer" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policySSN" placeholder="Policy Holder SSN" required>
+
+
+                            <input type="text" class="form-control3 mt-5" name="secundaryInsurange" placeholder="Secundary Insurange"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="namePolicy2" placeholder="Policy Holder Name">
+
+                            <input type="text" class="form-control3 mt-5" name="companyAddress2" placeholder="Company Address"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policyBirth2" placeholder="Policy Holder Date of Birth">
+
+                            <input type="text" class="form-control3 mt-5" name="codeZip" placeholder="City, State, Zip Code"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="number2ID" placeholder="Identifaction Number">
+
+                            <input type="text" class="form-control3 mt-5" name="phoneCompany" placeholder="Company Phone"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policyGroupNumber" placeholder="Policy/Group Number">
+
+                            <input type="text" class="form-control3 mt-5" name="employer2" placeholder="Employer"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" class="form-control3" name="policyHolder2" placeholder="Policy Holder SSN">
+
+                            <p class="mt-5"><b>Anny appoiment missed or canceled without 24 hour notice will result in a charge equal to 25% of the full rate of the therapy</b> </p>
+
+                            Signature: <input type="text" name="signaThera" class="form-control2"><br> Date: <input type="date" name="dateThera" class="form-control2" required>
+
+                            <hr>
+
+                            <h2 class="text-center">Confidentialy Release Form</h2>
+
+                            <span class="mt-3">
+                            I, <input type="text" name="patienName" class="form-control3" placeholder="Name pattient" required>,&nbsp; &nbsp; authorize &nbsp; &nbsp;<input type="text" class="form-control3" name="DoctorName" placeholder="Name doctor" required>,&nbsp; &nbsp; to disclose to <input type="text" class="form-control3" name="namesDistr" placeholder="Location of persons Organizations" required> &nbsp; &nbsp; the copies of any (Name and Location of Person(s)/Organization to Receive Information) and all records and information, which you may have possession. This includes all the transmissions of information and data via verbal and electronic contact.
+                        </span>
+
+                            <p>These records and information include, but may not be limited to: </p>
+
+                            <input type="checkbox" name="hospitalRecord" value="hospital" required> Hospital Records <br>
+                            <input type="checkbox" name="testResult" value="testResult" required> Laboratory Test Result <br>
+                            <input type="checkbox" name="medicalResults" value="medicalResults" required> Medical Results <br>
+                            <input type="checkbox" name="medicalOpinion" value="medicalOpinion" required> Medical Opinion <br>
+                            <input type="checkbox" name="treatmentPlan" value="treatmentPlan" required> Treatment Plans <br>
+                            <input type="checkbox" name="descriptionsPresciptions" value="descriptionsPresciptions" required> Descriptions and Prescriptions <br>
+                            <input type="checkbox" name="notesConvesations" value="notesConvesations"> Notes of conversations <br>
+                            <br><br>
+                            <span class="mt-3">
+                                I, understain purpuse of this disclousure is &nbsp; &nbsp; <input type="text" name="disclousure" class="form-control3">&nbsp; &nbsp; <input type="text" name="authorizationDisclousure" class="form-control3" placeholder="Authorization Disclousure">&nbsp; &nbsp;  <input type="text" name="authorizationDisclousure2" class="form-control3" required>
+                                <br>
+                                <input type="text" name="patientDisclousure" class="form-control2" placeholder="Patient Name" required> Date: <input type="date" name="disclousureDate" class="form-control3">
+                                <br>
+                                <input type="text" name="socialNumber" class="form-control2 mt-1" placeholder="Social Security Number" required>  
+                            </span>
+
+                            <span class="mt-3">
+                            
+                                Print Witness Name <input type="text" name="wName" class="form-control2" placeholder="Witness Name"> &nbsp; &nbsp; Date: <input type="date" name="disclousureDate" class="form-control3"> <br>
+                                Signature Witness: <input type="date" name="wSignature" class="form-control3">
+                            
+                            </span>
+                            <br><br><br>
+                            <h2 class="text-center">Attemption Recipient - Notice Prohibiting Redisclousure</h2>
+                            <p>I understand that my records are protected under federals regulations and cannot disclosed without my writting consent unless otherwise provided for in the regulations. I also understand that I may revoke this consent at any time
+                                exvept to the extent that action has been taken in reliance on it. </p>
+                            <br>
+                            <p>This information has been disclosed to yo from the records protected by Federal confidentiality rules 42 C.F.R. Part 2). The federal rules prohibit you from making any further disclosure of this information unless further disclosure
+                                is expressly permited by the written consent of the person to whom it pertains or as otherwise permitted by 42 C.F.R. part 2. The federal rules restrict any use of this information to criminally investigate or prosecute any
+                                alcohol or drug patient.</p>
+
+                            <hr><br><br>
+                            <h2 class="text-center">Permiso para tratar al paciente</h2>
+
+                            <span class="mt-5"> Yo, <input type="text" name="nameDr" class="form-control3"> &nbsp; &nbsp;autorizo a Adriana Ochoa , CMHP/CAP, para iniciar un tratamiento de consejería. Si fuera necesario, tambien autorizo que Adriana Ochoa, realice algunos exámenes para evalues el mejor plan de tratamiento para mejorar las relaciones personales, inter-familiares y sociales del cliente. <br>
+                                Tambien tengo conciencia de lo siguiente:
+                            </span><br>
+                            <ul>
+                                <li>Entiendo que la consulta de Adriana Ochoa no es una consulta medica y que en la eventualidad de necesitar un tratamiento profesional, puedo ser remitido a un psiquiatra o aun psicólogo clínico
+                                </li>
+                                <li>
+                                    Las citas serán pautadas por ambas partes y los clientes seran responsables por llegar a tiempo. la cncelación de una cita debe tener un previo aviso de por lo menos 24 horas. Fallar a cumplir con la politica de cancelación tendra un valor de 25% de la
+                                    consulta.
+                                </li>
+                                <li>En caso de emergencia y si hay menores de edad involucrados, Adriana Ochoa puede proceder según la ley etica a reportar a las autoridades locales.
+                                </li>
+                                <li>
+                                    La confidencialidad de los asuntos tratados durante la consulta serán estricatamente respetados por Adriana Ochoa. Seré contactado telefonicamente para confirmar las citas pautadas por medio de SMS o llamadas.
+                                </li>
+                            </ul>
+
+                            <span>Nombre cliente: <input type="text" name="name_C" class="form-control2" required></span><br>
+                            <span>Firma: <input type="text" name="firma_C" class="form-control2" required></span><br>
+                            <span>Autrorizacion de padres o guardian menor de edad: <input type="text" name="auth_C" class="form-control2" required></span><br>
+                            <span>Nombre padre/madre/guardian: <input type="text" name="name_Padres" class="form-control2" required></span><br>
+                            <span>Firma padre/madre/guardian: <input type="text" name="firma_Padres" class="form-control2" required></span><br>
+                            <span>Fecha: <input type="date" name="date_C" class="form-control3" required></span><br><br>
+
+                            <hr>
+
+                            <h2 class="text-center">No Show, Late cancellation and Copayment policy</h2>
+
+                            <span>I understand that I will be charged a LATE CANCELLATION fee of 25% of the full rate of the therapy if I fail to give at least 24 hour notice prior to cancelling my appoiment.</span>
+
+                            <span>2. I understand that I will be charged a NO-SHOW fee of $130 if I fail to show for my appoiment.</span>
+
+                            <span>3.I understand that I am responsible for knowing my co-payment amount and deductible amount. My co-payment amount per session is <input type="text" name="copayment_person" class="form-control3" placeholder="name copayment person" required> &nbsp;  My deducible amount per year is <input type="text" name="deducible" class="form-control3" placeholder="amount deducible per year"> &nbsp; Have you met your deducible for this year  <input type="radio" name="agreePayment" value="Yes"> Yes  <input type="radio" name="noagreePayment" value="No" > No  If no, how much more do you to pay towards your deducible. <input type="text" name="deducible2" class="form-control3" placeholder="how much more you can pay"> &nbsp;</span>
+
+                            <span>4. I understand that I will be charged a $60 service charge if I fail to make my payment and/or co-payment at the of my appoiment.</span>
+
+                            <span>5. I understand that these charges are an out pocket expense and that my insurance carrier will not cover these charges.</span>
+
+                            <span>6. I understand that the therapy session will last 60 minutes. I understand that if I am late to the appoiment, I will still have to end the session at the allotted time. By signing this, I am agreeing to the above stated terms and stipulations regarding the services I receive from this therapist.</span><br><br>
+
+                            <input type="text" name="signaparty" placeholder="Signature of Responsable Party" class="form-control2" required>
+
+                            <input type="date" name="dateparty" placeholder="Date" class="form-control2 mt-2" required><br><br>
+
+                            <hr>
+
+                            <h2 class="text-center mb-5">Credit/Debit Card Payment Consent Form</h2>
+
+                            <input type="text" class="form-control2" placeholder="Client name" name="clientName2" required>
+
+                            <input type="text" class="form-control2" placeholder="Name on card if different than client" name="clientName3" required>
+
+                            <p>I authorize Walking in Confidence LLC to charge my credit/debit/health account healtd card for professional services 24 hour before our scheduled appoiment. If I do not cancel before 24 hours, I recognize that Walking in Confidence
+                                LLC will charge my card as late cancel or no show or not show if I do not show up for the appoiment. I will be billed for the full session charge of the therapy service.</p>
+                            <br>
+                            <p>I verify that my credit card information, provided above, is accurate to the best of my kwoledge. If this information is incorrect or fraudulent or if my payment is declined. I undertand that I am responsible for the entire amount
+                                owed and any interest or additional cost incurred if denied. I also understand by signing and initialing this form that if form that if no payment has been made by me, my balance will go to collections if another alternative
+                                payment is not made within thirty days.</p>
+
+                            <input type="text" name="signaCard" placeholder="Signature of Responsable" class="form-control2" required>
+                            <input type="text" name="initialsCard" placeholder="Initials on card" class="form-control2" required>
+                            <input type="date" name="dateExp" placeholder="Expiration Date" class="form-control2 mt-2" required><br><br>
+                            <hr>
+
+                            <h2 class="text-center">Counseling Treatment Plan</h2> <br><br>
+
+                            <input type="text" name="nameCliente" placeholder="Client Name" class="form-control2" required>
+                            <input type="text" name="case" placeholder="case" required>
+                            <br><br> Reopen Date <input type="date" name="dateR" class="form-control3" required>
+                            <input type="text" name="inactive" placeholder="Inactive" class="form-control2" required>
+
+                            <span>Sympton rating for level of functioning change (scale 1-5; 1-mild, 3-moderate, 5-severe)</span><br><br>
+
+
+
+                            <input type="number" name="decreaseEner" placeholder="Decrease Energy" class="form-control4">
+                            <input type="number" name="restless" placeholder="Restlessnes" class="form-control4">
+                            <input type="number" name="hopelessnes" placeholder="Hope Lessness" class="form-control4">
+                            <input type="number" name="guilt" placeholder="Execesive Guilt" class="form-control4">
+                            <br>
+                            <input type="number" name="panickAttacks" placeholder="Panic Attacks" class="form-control4">
+                            <input type="number" name="cruelty" placeholder="Cruelty" class="form-control4">
+                            <input type="number" name="lossPleasure" placeholder="Loss of Pleasure" class="form-control4">
+                            <input type="number" name="depressed" placeholder="Depressed Mood" class="form-control4">
+
+                            <input type="number" name="anxiety" placeholder="Anxiety" class="form-control4">
+                            <input type="number" name="disturbanseSleep" placeholder="Disturbance Sleep" class="form-control4">
+                            <input type="number" name="withDrawn" placeholder="Withdrawn" class="form-control4">
+                            <input type="number" name="oppositional" placeholder="oppostional" class="form-control4">
+
+                            <input type="number" name="poorContcentration" placeholder="Poor Concentration" class="form-control4">
+                            <input type="number" name="indecisive" placeholder="indecisive" class="form-control4">
+                            <input type="number" name="moodSw" placeholder="Mood Swings" class="form-control4">
+                            <input type="number" name="violationR" placeholder="Violation Rules" class="form-control4">
+
+                            <input type="number" name="legalPro" placeholder="Legal Problems" class="form-control4">
+                            <input type="number" name="irritability" placeholder="irritability" class="form-control4">
+                            <input type="number" name="helplessnes" placeholder="helplessnes" class="form-control4">
+                            <input type="number" name="eationDis" placeholder="Eating Disturbance" class="form-control4">
+
+                            <input type="number" name="impulsivity" placeholder="impulsivity" class="form-control4">
+                            <input type="number" name="worrying" placeholder="worrying" class="form-control4">
+                            <input type="number" name="agression" placeholder="Agression/rage" class="form-control4">
+                            <input type="number" name="tearfulness" placeholder="Tearfulness" class="form-control4">
+
+                            <input type="number" name="substanceAbu" placeholder="Substance Abuse" class="form-control4">
+                            <input type="number" name="ritualBe" placeholder="Ritual Behavior" class="form-control4">
+                            <input type="number" name="lowSteem" placeholder="Low self-esteem" class="form-control4">
+                            <input type="number" name="lowMotivation" placeholder="Low Motivation" class="form-control4">
+
+                            <input type="text" name="other" class="form-control" placeholder="Other">
+                            <br><br><br> Chenges in Psychosocial / Psychological level of distress: <br>
+                            <input type="radio" name="stressLe" value="greater"> Greater - <input type="radio" name="stressLe" value="less"> Less - <input type="radio" name="stressLe" value="none" required> None <br><br>
+
+                            <input type="text" name="changesPS" placeholder="Changes in physical status" class="form-control2"><br><br>
+
+                            <input type="number" name="changesPSA" placeholder="Reports received/ Ancilarry services documented" class="form-control2"><br><br>
+
+                            <span>
+                            <strong>Treatment plan: progress toward/modification of goals and objectives, with estimated completion dates:</strong> 
+                            </span><br><br>
+
+                            <textarea name="plantTreatmen" id="" cols="30" rows="10" class="form-control" required></textarea><br>
+
+                            <span>
+                                Changes in a treatment criteria &nbsp;&nbsp;  <input type="radio" name="trat_crit" class="form-control5" value="Yes, I noted changes in treatment criteria">Yes <input type="radio" name="trat_crit" class="form-control5" value="No, I not noted changes in treatment criteria"> No,&nbsp;&nbsp; if yes, note changes. <br><br>
+
+                                <textarea name="plantTreatmen" id="" cols="30" rows="10" class="form-control" required></textarea>
+
+
+                            </span><br><br>
+
+                            <span>
+
+                                Sessions per month: <input type="number" name="sessionpermonth" class="form-control5" required> &nbsp;&nbsp; client concurred: <input type="radio" name="client_concurred" class="form-control5" value="yes, client concurred">Yes, &nbsp;<input type="radio" name="client_concurred" class="form-control5" value="no, client concurred"> No
+                            </span><br><br>
+
+                            <span>
+                                Dx Code (Original) <input type="text" name="dxCode" class="form-conrol2" required><br><br>
+                                Dx Code (Current) <input type="text" name="dxCurrent" class="form-conrol2" required><br><br>
+                                URC <input type="text" name="urc" class="form-conrol2"><br>
+                            </span>
+
+                            <input type="text" name="therapist" class="form-control2" placeholder="Thearapist" required> &nbsp;&nbsp; <input type="date" name="dateTh" class="form-control5"><br><br>
+
+                            <input type="text" name="supervisor" class="form-control2" placeholder="Supervisor" required> &nbsp;&nbsp; <input type="date" name="dateSup" class="form-control5">
+
+                            <br><br>
+
+                            <hr>
+
+                            <h2 class="text-center">Theraphy Progress Note </h2> <br><br>
+
+                            <span>
+                                Client's name:&nbsp; <input type="text" class="form-control2" name="client_name" required>&nbsp;&nbsp; Case Number: <input type="text" name="caseNumber" class="form-control2" placeholder="Case Number" required>
+                            </span><br><br>
+
+                            <span>
+                                Appoiment Date:&nbsp; <input type="date" class="form-control2" name="appDate" required>&nbsp;&nbsp; Appoiment Time: <input type="time" name="appTime" class="form-control2" required>
+                            </span><br><br>
+
+                            <span>
+                            <b> Session Focus:</b>  <br>
+                                <textarea name="session_focus" class="form-control" cols="30" rows="10" required></textarea>
+                            </span><br><br>
+
+                            <span>
+                                <b>Theraphy Intervention</b>
+                                <textarea name="theraphyInter" class="form-control" cols="30" rows="10" required></textarea>
+                            </span>
+
+                            <br><br>
+
+                            <span>
+                                <b>Planned Intervention</b>
+                                <textarea name="planInter" class="form-control" cols="30" rows="10" required></textarea>
+                            </span><br><br><br>
+
+                            <input type="text" class="form-control3 mt-5" name="clientSignature" placeholder="Client Signature" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp; Date &nbsp;&nbsp;
+                            <input type="date" class="form-control3" name="dateSignature" required>
+
+
+                            <input type="text" class="form-control3 mt-5" name="therapistSignature" placeholder="Therapist Signature" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp; Date &nbsp;&nbsp;
+                            <input type="date" class="form-control3" name="therapistDate" required>
+
+
+
+
+                            <input type="text" class="form-control3 mt-5" name="parentGuardian" placeholder="Parent's/Guardian Signature" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Date &nbsp;&nbsp;
+                            <input type="date" class="form-control3" name="parentDate" required>
+
+
+
+
+                            <input type="text" class="form-control3 mt-5" name="supervisorSignature" placeholder="Supervisor" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp; Date &nbsp;&nbsp;
+                            <input type="date" class="form-control3" name="supervisorDate" required>
+
+
+                            <input type="submit" value="Enviar" class="btn btn-primary btn-block mt-5 p-3"> <br><br>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <br>
+    <br>
+  
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+    
+</body>
+
+</html>
+
+<?php
+if(isset($_POST)) {
+    $name = isset($_POST['name']) ? $_POST['name'] : false;
+	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : false;
+	$email = isset($_POST['email']) ? $_POST['email'] : false;
+    $phone = isset($_POST['phone']) ? $_POST['phone'] : false;
+    
+    
+        
+     $send =  $contact->registrar($name,$lastname,$email,$phone); 
+     
+     $tr='
+     <body>
+        <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
+            <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+                <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
+    
+                    <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
+                        <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+                            <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 35px; line-height: 60px; padding:20px; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #5481E9; color:#fff">
+                                Walking in confidence
+                            </td>
+    
+                        </tr>
+                        <!-- Email Body -->
+                        <tr>
+                            <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
+    
+                                <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
+                                    <!-- Body content -->
+                                    <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+                                        <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
+                                            <div style="padding:30px">
+                                                <h1 style="text-align:left">New form contact received</h1>
+    
+                                                <!-- Discount -->
+    
+    
+                                                <!-- Action -->
+                                                <h2 style="color:#3869D4">Information of contact</h2>
+    
+    
+    
+                                                <br>
+    
+                                                <ul>
+                                                    <li><b style="color:#000">Name: </b>'.$name.'</li>
+                                                    <li><b style="color:#000">Lastname: </b>'.$lastname.'</li>
+                                                    <li><b style="color:#000">Email: </b>'.$email.'</li>
+                                                    <li><b style="color:#000">Phone: </b>'.$phone.'</li>
+    
+    
+                                                </ul>
+    
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>
+    
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br><br><br>
+    </body>
+          ';
+
+         
+          
+            $asunto = "New contact form";
+            $emaildelusuarioqueloenvia = "walkinginconfidencecounseling.com"; 
+            
+            $header  = "FROM: THRAV@gmail.com\r\n";	
+            $header .='Content-type: text/html; charset=UTF-8' . "\r\n";
+            $header .= "Return-Path: THRAV@gmail.com\r\n";
+            $header .= "Organization: THERVADVISOR\r\n";
+              
+              
+             
+          
+           // mail('corporativo.ophyra@gmail.com',$asunto,$tr,$header);
+
+           
+
+
+    }
+
+    ?>
+
+    <script>
+  /*  function validar() {
+        if ($('.form-control').val() == '' || $('.form-control2').val() == '' || $('.form-control3').val() == '' || $('.form-control4').val() || $('.form-control5').val() == '') {
+            //alert('Complete los campos');
+            swal("Attemption this field is required", "", "warning");
+            return false;
+        } else return true;
+    }
+*/
+
+    $(function() {
+  $("#btnEnviar").click(function(event) {
+    /*Evita que se recargue la página*/
+    event.preventDefault();
+    /* Serializamos en una sola variable ambos formularios*/
+    var allData = $("#formA, #formB").serialize();
+    /*Prueba*/
+    console.log(allData);
+    /*Podemos usar allData para enviarlo por Ajax o lo que sea*/
+            $.ajax({
+            url: "form.php",
+            type: "POST",
+            data: formA,formB,
+            error: function(e){},
+            success: function(data){}
+        });
+
+  });
+});
+</script>
