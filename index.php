@@ -63,7 +63,7 @@ $Email = new Email;
                 <div class="col-lg-12 col-md-6">
                 <h1 class="text-center mt-5">NO-HARM CONTRACT</h1>
                 <br>
-                    <form action="form.php" method="POST" onsubmit="return validar()">
+                    <form action="form.php" method="POST" >
 
                         <div class="form">
 
@@ -141,7 +141,7 @@ $Email = new Email;
                                 Client Name:   <input type="text" name="client_name" width="50% important!;" placeholder="Client name" id="client_name" required> 
                             </span><br><br>
                             <span> 
-                            I hereby give my informaed consent for the use of tlemental health in my care. Client Initials  <input type="text" name="client_ini" width="50% important!;" placeholder="Client Initials" required> 
+                            I hereby give my informaed consent for the use of tlemental health in my care. Client Initials:  <input type="text" name="client_ini" width="50% important!;" placeholder="Client Initials" required> 
                             </span><br><br>
                             <span> 
                                 Date Birth  <input type="date" name="birth_client" width="50% important!;" placeholder="Client Birth" required> 
@@ -153,7 +153,7 @@ $Email = new Email;
                                 Phone Number  <input type="text" name="phone_client" width="50% important!;" placeholder="Client Phone" required> 
                             </span><br><br>
                             <span> 
-                                Client Signature  <input type="text" name="client_signature" width="50% important!;" placeholder="Client Phone" required> 
+                                Client Signature  <input type="text" name="client_signature" width="50% important!;" placeholder="Client Signature" required> 
                             </span><br><br>
                             <span> 
                                 Date <input type="date" name="dateApp" width="50% important!;" placeholder="Date" required> 
@@ -200,19 +200,19 @@ $Email = new Email;
                             <input type="text" name="NameRep"  placeholder="Individual or Legal Representative(Please print)" class="form-control2" required>  Date <input type="date" name="dateRep" required> 
                             </span><br><br>
                             <span> 
-                            <input type="text" name="SignaRep"  placeholder="Signature of Individual or Legal Representative" class="form-control2">Date <input type="text" name="dateRep2" required> 
+                            <input type="text" name="SignaRep"  placeholder="Signature of Individual or Legal Representative" class="form-control2">Date <input type="date" name="dateRep2" required> 
                             </span><br><br>
 
                             <hr>
 
                             <h2 class="text-center">Patient Questionnaire</h2>
                             <span> Name:
-                                <input type="text" name="NamePat" class="form-control2 mt-5" placeholder="Name patient" class="form-control2" required> 
+                                <input type="text" name="namePat" class="form-control2 mt-5" placeholder="Name patient" class="form-control2" required> 
                                         </span><br><br>
                             <span> 
 
                             <span> 
-                                Date of Birth: <input type="text" name="birth" width="50% important!;" placeholder="Birth Date">     Age <input type="text" name="dateS" class="mr-50" required> 
+                                Date of Birth: <input type="date" name="birth" width="50% important!;" placeholder="Birth Date">     Age <input type="text" name="dateS" class="mr-50" required> 
                             </span><br><br>
 
                             <span> 
@@ -220,7 +220,7 @@ $Email = new Email;
                             </span><br><br>
 
                             <span> 
-                            Current  Medication: <textarea name="currentMed" class="form-control" ></textarea> 
+                            Current  Medication: <textarea name="currentMed" class="form-control" required></textarea> 
                             </span><br><br>
 
                             <span> 
@@ -267,7 +267,7 @@ $Email = new Email;
                             </span><br><br>
 
                             <span>
-                                8. What pharmacy will you utilizing?? <input type="text" name="pharmacy" class="form-control" placeholder="Name of pharmacy" required>  
+                                8. What pharmacy will you utilizing?? <input type="text" name="pharmacy" class="form-control" placeholder="Name of pharmacy" >  
                                 
                             </span><br><br>
 
@@ -287,14 +287,14 @@ $Email = new Email;
                             <span>
                                 11. Do you understand inappropiate/improper use of precribed or non prescribed medications may/will KILL YOU ?? &nbsp;&nbsp; &nbsp;&nbsp;
 
-                                <input type="radio" name="acept" value="Understand kill my self" required> Yes  &nbsp;&nbsp;
-                                <input type="radio" name="noacept" value="No Understand kill my self" required> No                           
+                                <input type="radio" name="acept" value="Yes" > Yes  &nbsp;&nbsp;
+                                <input type="radio" name="noacept" value="No" > No                           
                             </span><br><br>
 
                             <span>
                                 12. Is it your statement that you have answered all questions and inquiries in a truthful and honor manner &nbsp;&nbsp; &nbsp;&nbsp;
 
-                                <input type="radio" name="answerHonor" value="Answer Honor" > Yes  &nbsp;&nbsp;
+                                <input type="radio" name="answerHonor" value="I with Answer Honor" > Yes  &nbsp;&nbsp;
                                 <input type="radio" name="noanswerHonor" value="No-Answer Honor" > No                           
                             </span><br><br>
 
@@ -377,7 +377,7 @@ $Email = new Email;
                             <input type="text" class="form-control3 mt-5" name="companyName" placeholder="Company name" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="text" class="form-control3" name="policyBirth" placeholder="Policy Holder Date of Birth" required>
+                            <input type="date" class="form-control3" name="policyBirth" placeholder="Policy Holder Date of Birth" required>
 
                             <input type="text" class="form-control3 mt-5" name="cityState" placeholder="City, State, Zip Code" required> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -432,13 +432,13 @@ $Email = new Email;
 
                             <p>These records and information include, but may not be limited to: </p>
 
-                            <input type="checkbox" name="hospitalRecord" value="hospital" required> Hospital Records <br>
-                            <input type="checkbox" name="testResult" value="testResult" required> Laboratory Test Result <br>
-                            <input type="checkbox" name="medicalResults" value="medicalResults" required> Medical Results <br>
-                            <input type="checkbox" name="medicalOpinion" value="medicalOpinion" required> Medical Opinion <br>
-                            <input type="checkbox" name="treatmentPlan" value="treatmentPlan" required> Treatment Plans <br>
-                            <input type="checkbox" name="descriptionsPresciptions" value="descriptionsPresciptions" required> Descriptions and Prescriptions <br>
-                            <input type="checkbox" name="notesConvesations" value="notesConvesations"> Notes of conversations <br>
+                            <input type="checkbox" name="hospitalRecord" value="Hospital Record" > Hospital Records <br>
+                            <input type="checkbox" name="testResult" value="Test Result" > Laboratory Test Result <br>
+                            <input type="checkbox" name="medicalResults" value="Medical Results" > Medical Results <br>
+                            <input type="checkbox" name="medicalOpinion" value="Medical Opinion" > Medical Opinion <br>
+                            <input type="checkbox" name="treatmentPlan" value="Treatment Plan" > Treatment Plans <br>
+                            <input type="checkbox" name="descriptionsPresciptions" value="Descriptions Presciptions" > Descriptions and Prescriptions <br>
+                            <input type="checkbox" name="notesConvesations" value="Notes Convesations"> Notes of conversations <br>
                             <br><br>
                             <span class="mt-3">
                                 I, understain purpuse of this disclousure is &nbsp; &nbsp; <input type="text" name="disclousure" class="form-control3">&nbsp; &nbsp; <input type="text" name="authorizationDisclousure" class="form-control3" placeholder="Authorization Disclousure">&nbsp; &nbsp;  <input type="text" name="authorizationDisclousure2" class="form-control3" required>
@@ -466,7 +466,7 @@ $Email = new Email;
                             <hr><br><br>
                             <h2 class="text-center">Permiso para tratar al paciente</h2>
 
-                            <span class="mt-5"> Yo, <input type="text" name="nameDr" class="form-control3"> &nbsp; &nbsp;autorizo a Adriana Ochoa , CMHP/CAP, para iniciar un tratamiento de consejería. Si fuera necesario, tambien autorizo que Adriana Ochoa, realice algunos exámenes para evalues el mejor plan de tratamiento para mejorar las relaciones personales, inter-familiares y sociales del cliente. <br>
+                            <span class="mt-5"> Yo, <input type="text" name="nameDr" class="form-control3"> &nbsp; &nbsp; autorizo a Adriana Ochoa , CMHP/CAP, para iniciar un tratamiento de consejería. Si fuera necesario, tambien autorizo que Adriana Ochoa, realice algunos exámenes para evalues el mejor plan de tratamiento para mejorar las relaciones personales, inter-familiares y sociales del cliente. <br>
                                 Tambien tengo conciencia de lo siguiente:
                             </span><br>
                             <ul>
@@ -578,7 +578,7 @@ $Email = new Email;
 
                             <input type="text" name="other" class="form-control" placeholder="Other">
                             <br><br><br> Chenges in Psychosocial / Psychological level of distress: <br>
-                            <input type="radio" name="stressLe" value="greater"> Greater - <input type="radio" name="stressLe" value="less"> Less - <input type="radio" name="stressLe" value="none" required> None <br><br>
+                            <input type="radio" name="stressLe" value="greater"> Greater - <input type="radio" name="stressLe" value="less"> Less - <input type="radio" name="stressLe" value="none" > None <br><br>
 
                             <input type="text" name="changesPS" placeholder="Changes in physical status" class="form-control2"><br><br>
 
@@ -698,128 +698,4 @@ $Email = new Email;
 
 </html>
 
-<?php
-if(isset($_POST)) {
-    $name = isset($_POST['name']) ? $_POST['name'] : false;
-	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : false;
-	$email = isset($_POST['email']) ? $_POST['email'] : false;
-    $phone = isset($_POST['phone']) ? $_POST['phone'] : false;
-    
-    
-        
-     $send =  $contact->registrar($name,$lastname,$email,$phone); 
-     
-     $tr='
-     <body>
-        <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
-            <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
-                <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
-    
-                    <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
-                        <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
-                            <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 35px; line-height: 60px; padding:20px; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #5481E9; color:#fff">
-                                Walking in confidence
-                            </td>
-    
-                        </tr>
-                        <!-- Email Body -->
-                        <tr>
-                            <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
-    
-                                <table style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0;  ">
-                                    <!-- Body content -->
-                                    <tr style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
-                                        <td style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;   border: 1px solid #f0f0f0; background-color: #fff;">
-                                            <div style="padding:30px">
-                                                <h1 style="text-align:left">New form contact received</h1>
-    
-                                                <!-- Discount -->
-    
-    
-                                                <!-- Action -->
-                                                <h2 style="color:#3869D4">Information of contact</h2>
-    
-    
-    
-                                                <br>
-    
-                                                <ul>
-                                                    <li><b style="color:#000">Name: </b>'.$name.'</li>
-                                                    <li><b style="color:#000">Lastname: </b>'.$lastname.'</li>
-                                                    <li><b style="color:#000">Email: </b>'.$email.'</li>
-                                                    <li><b style="color:#000">Phone: </b>'.$phone.'</li>
-    
-    
-                                                </ul>
-    
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-    
-                        <tr>
-                            <td>
-    
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table><br><br><br>
-    </body>
-          ';
 
-         
-          
-            $asunto = "New contact form";
-            $emaildelusuarioqueloenvia = "walkinginconfidencecounseling.com"; 
-            
-            $header  = "FROM: THRAV@gmail.com\r\n";	
-            $header .='Content-type: text/html; charset=UTF-8' . "\r\n";
-            $header .= "Return-Path: THRAV@gmail.com\r\n";
-            $header .= "Organization: THERVADVISOR\r\n";
-              
-              
-             
-          
-           // mail('corporativo.ophyra@gmail.com',$asunto,$tr,$header);
-
-           
-
-
-    }
-
-    ?>
-
-    <script>
-  /*  function validar() {
-        if ($('.form-control').val() == '' || $('.form-control2').val() == '' || $('.form-control3').val() == '' || $('.form-control4').val() || $('.form-control5').val() == '') {
-            //alert('Complete los campos');
-            swal("Attemption this field is required", "", "warning");
-            return false;
-        } else return true;
-    }
-*/
-
-    $(function() {
-  $("#btnEnviar").click(function(event) {
-    /*Evita que se recargue la página*/
-    event.preventDefault();
-    /* Serializamos en una sola variable ambos formularios*/
-    var allData = $("#formA, #formB").serialize();
-    /*Prueba*/
-    console.log(allData);
-    /*Podemos usar allData para enviarlo por Ajax o lo que sea*/
-            $.ajax({
-            url: "form.php",
-            type: "POST",
-            data: formA,formB,
-            error: function(e){},
-            success: function(data){}
-        });
-
-  });
-});
-</script>

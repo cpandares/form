@@ -31,13 +31,15 @@
                     title: 'Messsage sent succesfuly',
                     text: 'Thanks, we contact you soon',
                     type: 'success',
-                    })
+                    }).then(function() {
+              window.location.replace ('index.php');
+          });
                 </script>
             <?php
                 
-                $idDreamers = $this->db->execute();   
+                $se = $this->db->execute();   
 
-                return $idDreamers;
+                return $se;
                
                 
             }catch(\Exception $e){
@@ -47,7 +49,8 @@
                     title: 'Oopss, Someting wrong',
                     text: 'Please try with a different email',
                     type: 'error'
-                    })
+                    }).then(function() {
+              window.location.replace ('index.php');
                 </script>
                     <?php
                    
